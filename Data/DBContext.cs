@@ -9,6 +9,7 @@ namespace LocacaoImoveis.Data
         {
 
         }
+        public DbSet<ClienteEndereco> ClientesEndereco { get; set; }
         public DbSet<ClientesModel> Clientes { get; set; }
         public DbSet<EnderecosModel> Enderecos { get; set; }
         public DbSet<ImoveisModel> Imoveis { get; set; }
@@ -24,4 +25,6 @@ namespace LocacaoImoveis.Data
             base.OnModelCreating(modelBuilder);
         }
     }
+
+
 }

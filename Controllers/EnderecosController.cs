@@ -22,7 +22,7 @@ namespace LocacaoImoveis.Controllers
             return Ok(enderecos);
         }
 
-        [HttpGet("{cep}")]
+        [HttpGet("/{cep}")]
         public IActionResult BuscaEnderecoCep(string cep)
         {
             var enderecos = this.repository.BuscaEnderecoCep(cep);

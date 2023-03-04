@@ -15,19 +15,20 @@ namespace LocacaoImoveis.Controllers
             this.repository = repository;
         }
 
-        [HttpPut("atualiza-cliente/{id}")]
+        [HttpPut("/atualiza-cliente/{id}")]
         public IActionResult atualizarCliente(ClientesModel clientes, int id)
         {
             ClientesModel clienteModel = repository.atualizarCliente(clientes, id);
             return Ok(clientes);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("/{id}")]
         public IActionResult buscarClientePorId(int id)
         {
             ClientesModel cliente = repository.buscarClientePorId(id);
             return Ok(cliente);
         }
+
 
         [HttpGet]
         public IActionResult buscarTodosCliente()
@@ -38,13 +39,13 @@ namespace LocacaoImoveis.Controllers
         }
 
         [HttpPost]
-        public IActionResult criarCliente(ClientesModel clientes)
+        public IActionResult criarCliente([FromBody] ClientesModel clientes)
         {
             ClientesModel cliente = repository.criarCliente(clientes);
             return Ok(cliente);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("/{id}")]
         public IActionResult deleteClientePorId(int id)
         {
             repository.deleteClientePorId(id);

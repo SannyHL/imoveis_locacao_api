@@ -25,12 +25,22 @@ builder.Services.AddScoped<IImoveisRepository, ImoveisRepository>();
 
 var app = builder.Build();
 
+builder.Services.AddCors();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(c =>
+{
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.AllowAnyOrigin();
+    c.DisallowCredentials();
+});
 
 app.UseHttpsRedirection();
 
